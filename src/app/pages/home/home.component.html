@@ -1,1 +1,25 @@
-<p>home works!</p>
+<main class="body">
+  <h1 class="body__title">Global Enginner</h1>
+
+  <form class="form">
+    <app-text-input
+      label="Usuario"
+      (onBlurInput)="catchUser($event)"
+      [error]="errorUser"
+    ></app-text-input>
+
+    <div class="form__container-input">
+      <app-text-input
+        label="Contraseña"
+        (onBlurInput)="catchPassword($event)"
+        [error]="errorPassword"
+      ></app-text-input>
+    </div>
+
+    <div class="form__container-button">
+      <app-button text="Siguiente"></app-button>
+    </div>
+  </form>
+</main>
+
+<app-footer></app-footer>

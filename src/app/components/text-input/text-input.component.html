@@ -1,0 +1,19 @@
+<span class="p-float-label">
+  <input
+    id="float-input"
+    [type]="type"
+    pInputText
+    [(ngModel)]="value"
+    (ngModelChange)="onChange()"
+    (blur)="onBlur()"
+    autocomplete="off"
+    [style]="{ width: width }"
+    [disabled]="disabled"
+    [class]="error ? 'ng-invalid ng-dirty' : ''"
+  />
+  <label for="float-input">{{ label }}</label>
+</span>
+
+<small *ngIf="error" id="username2-help" class="p-error block">{{
+  error
+}}</small>

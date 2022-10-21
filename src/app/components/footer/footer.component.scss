@@ -1,0 +1,22 @@
+.footer {
+  width: 100%;
+  background-color: var(--surface-card);
+  box-sizing: border-box;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__names {
+    font-size: 16px;
+    margin: 0;
+
+    &:first-of-type {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__logo {
+    width: 80px;
+  }
+}
