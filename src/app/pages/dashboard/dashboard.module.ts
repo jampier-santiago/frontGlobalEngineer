@@ -1,11 +1,14 @@
+// --- Dependencies ---
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './dashboard.component';
-
 import { RouterModule } from '@angular/router';
+
+// --- Components ---
+import { DashboardComponent } from './dashboard.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   declarations: [DashboardComponent],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ComponentsModule],
 })
 export class DashboardModule {}

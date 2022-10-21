@@ -22,7 +22,7 @@ const routes: Routes = [
         component: EditarComponent,
       },
       {
-        path: 'buscar/:id',
+        path: 'buscar',
         component: BuscarComponent,
       },
       {

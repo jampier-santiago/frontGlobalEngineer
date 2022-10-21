@@ -8,10 +8,21 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { TextInputComponent } from './text-input/text-input.component';
 import { ButtonComponent } from './button/button.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
-  declarations: [FooterComponent, TextInputComponent, ButtonComponent],
-  exports: [FooterComponent, TextInputComponent, ButtonComponent],
+  declarations: [
+    FooterComponent,
+    TextInputComponent,
+    ButtonComponent,
+    MenuComponent,
+  ],
+  exports: [
+    FooterComponent,
+    TextInputComponent,
+    ButtonComponent,
+    MenuComponent,
+  ],
   imports: [CommonModule, PrimeNgModule, FormsModule],
 })
 export class ComponentsModule {}
