@@ -1,17 +1,19 @@
+// --- Depencies ---
 import { NgModule } from '@angular/core';
 
+// --- Modules ---
 import { RouterModule, Routes } from '@angular/router';
 
+// --- Components ---
 import { AgregarComponent } from './agregar/agregar.component';
-import { BuscarComponent } from './buscar/buscar.component';
 import { EditarComponent } from './editar/editar.component';
-import { LayoutComponent } from './layout/layout.component';
+import { DefaultLayoutComponent } from 'src/app/layouts/default-layout/default-layout.component';
 import { ListarComponent } from './listar/listar.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
+    component: DefaultLayoutComponent,
     children: [
       {
         path: 'agregar',
@@ -20,10 +22,6 @@ const routes: Routes = [
       {
         path: 'editar',
         component: EditarComponent,
-      },
-      {
-        path: 'buscar',
-        component: BuscarComponent,
       },
       {
         path: 'listar',

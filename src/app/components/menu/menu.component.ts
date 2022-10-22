@@ -39,7 +39,6 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-fw pi-sitemap',
         baseUrl: 'ingredientes-x-productos',
       },
-      { label: 'Informes', icon: 'pi pi-fw pi-file-o', baseUrl: 'informes' },
     ];
   }
 
@@ -47,7 +46,6 @@ export class MenuComponent implements OnInit {
     const temporaryItems: MenuItem[] = [];
 
     this._groups.forEach((group) => {
-      console.log(group);
       temporaryItems.push({
         label: group.label,
         icon: group.icon,
@@ -67,15 +65,17 @@ export class MenuComponent implements OnInit {
             icon: 'pi pi-fw pi-list',
             routerLink: `/${group.baseUrl}/listar`,
           },
-          {
-            label: 'Buscar',
-            icon: 'pi pi-fw pi-search',
-            routerLink: `/${group.baseUrl}/buscar`,
-          },
         ],
       });
     });
 
-    this.items = temporaryItems;
+    this.items = [
+      ...temporaryItems,
+      {
+        label: 'Informes',
+        icon: 'pi pi-fw pi-file-o',
+        routerLink: '/informes',
+      },
+    ];
   }
 }

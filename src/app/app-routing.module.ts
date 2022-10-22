@@ -1,8 +1,11 @@
+// --- Dependencies ---
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+// --- Components ---
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
+import { InformesComponent } from './pages/informes/informes.component';
 
 const routes: Routes = [
   {
@@ -29,8 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'informes',
-    loadChildren: () =>
-      import('./pages/informes/informes.module').then((m) => m.InformesModule),
+    component: InformesComponent,
   },
   {
     path: 'ingredientes',
