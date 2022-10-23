@@ -1,0 +1,23 @@
+.list {
+  width: 100%;
+  margin-top: 35px;
+  box-sizing: border-box;
+
+  &__title {
+    font-size: 36px;
+    margin: 0;
+  }
+
+  &__nav-search {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 35px;
+  }
+
+  &__container-table {
+    width: 60%;
+    margin-top: 30px;
+  }
+}

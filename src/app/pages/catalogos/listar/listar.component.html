@@ -1,1 +1,32 @@
-<p>listar Catalogo!</p>
+<section class="list">
+  <h1 class="list__title">Lista de los catalogos</h1>
+
+  <div class="list__nav-search">
+    <app-text-input
+      label="Id del catalogo"
+      type="text"
+      width="400px"
+    ></app-text-input>
+
+    <app-button text="Buscar"></app-button>
+  </div>
+
+  <section class="list__container-table">
+    <p-table [value]="catalogs">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id Catalogo</th>
+          <th>Tipo Catalogo</th>
+          <th>Nombre Catalogo</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-catalog>
+        <tr>
+          <td>{{ catalog.Id_Catalogo }}</td>
+          <td>{{ catalog.Tipo_Catalogo }}</td>
+          <td>{{ catalog.Nombre_Catalogo }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>
+</section>
