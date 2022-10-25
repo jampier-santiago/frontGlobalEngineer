@@ -18,6 +18,17 @@
 
   &__container-table {
     width: 60%;
-    margin-top: 30px;
+    margin-top: 50px;
+
+    // &::-webkit-scrollbar {
+    //   width: 10px;
+    //   background-color: black;
+    // }
+
+    // &::-webkit-scrollbar-thumb {
+    //   background: linear-gradient(to top, #008aff, #00ffe7);
+    //   animation: animate 5s linear infinite;
+    //   border-radius: 25px;
+    // }
   }
 }

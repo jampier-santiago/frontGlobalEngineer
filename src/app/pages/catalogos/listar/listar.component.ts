@@ -10,20 +10,11 @@ import { Catalog } from './catalogos.interfaces';
 export class ListarComponent implements OnInit {
   public catalogs: Catalog[] = [];
 
-  // constructor(private _catalogsService: CatalogosService) {}
-  constructor() {
-    this.catalogs = [
-      { Nombre_Catalogo: 'Celular', Tipo_Catalogo: 'Contacto', Id_Catalogo: 1 },
-      { Nombre_Catalogo: 'Email', Tipo_Catalogo: 'Contacto', Id_Catalogo: 2 },
-      {
-        Nombre_Catalogo: 'Direccion',
-        Tipo_Catalogo: 'Contacto',
-        Id_Catalogo: 3,
-      },
-    ];
-  }
+  constructor(private _catalogsService: CatalogosService) {}
 
   ngOnInit(): void {
-    // this._catalogsService.getAllCatalogs();
+    this._catalogsService.getAllCatalogs.subscribe((data) => {
+      this.catalogs = data;
+    });
   }
 }
