@@ -34,7 +34,6 @@ export class HomeComponent {
 
   catchPassword(password: string) {
     if (password) {
-      console.log(password);
       this._password = password;
 
       if (this._user && password) {

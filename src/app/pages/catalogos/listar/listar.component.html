@@ -1,3 +1,11 @@
+<p-toast
+  position="top-center"
+  severity="success"
+  summary="Summary Text"
+  [baseZIndex]="5000"
+  key="toastError"
+></p-toast>
+
 <section class="list">
   <h1 class="list__title">Lista de los catalogos</h1>
 
@@ -6,9 +14,19 @@
       label="Id del catalogo"
       type="text"
       width="400px"
+      (onBlurInput)="onChangeInput($event)"
     ></app-text-input>
 
-    <app-button text="Buscar"></app-button>
+    <div class="">
+      <button
+        pButton
+        type="button"
+        label="Buscar"
+        [style.width]="'200px'"
+        class="button"
+        (click)="searchCatalog()"
+      ></button>
+    </div>
   </div>
 
   <section class="list__container-table">

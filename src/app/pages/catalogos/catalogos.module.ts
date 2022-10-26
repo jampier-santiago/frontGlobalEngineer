@@ -13,7 +13,10 @@ import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
 import { AgregarComponent } from './agregar/agregar.component';
 import { EditarComponent } from './editar/editar.component';
 import { ListarComponent } from './listar/listar.component';
+
+// --- Services ---
 import { CatalogosService } from './catalogos.service';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [AgregarComponent, EditarComponent, ListarComponent],
@@ -25,6 +28,6 @@ import { CatalogosService } from './catalogos.service';
     HttpClientModule,
     PrimeNgModule,
   ],
-  providers: [CatalogosService],
+  providers: [CatalogosService, MessageService],
 })
 export class CatalogosModule {}
