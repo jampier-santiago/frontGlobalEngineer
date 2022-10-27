@@ -7,7 +7,7 @@ import { MessageService } from 'primeng/api';
 import { CatalogosService } from '../catalogos.service';
 
 // --- Interfaces ---
-import { Catalog } from './catalogos.interfaces';
+import { Catalog } from '../catalogos.interfaces';
 
 @Component({
   selector: 'app-listar',

@@ -8,6 +8,7 @@ import { LayoutsModule } from 'src/app/layouts/layouts.module';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // --- Components ---
 import { AgregarComponent } from './agregar/agregar.component';
@@ -27,6 +28,8 @@ import { MessageService } from 'primeng/api';
     LayoutsModule,
     HttpClientModule,
     PrimeNgModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [CatalogosService, MessageService],
 })

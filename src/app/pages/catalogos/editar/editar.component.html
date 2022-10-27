@@ -1,3 +1,47 @@
+<p-toast
+  position="top-center"
+  severity="success"
+  summary="Summary Text"
+  [baseZIndex]="5000"
+  key="toast"
+  (onClose)="goToList()"
+></p-toast>
+
 <section class="edit">
-  <h1 class="edit__title">Editar un catalogo</h1>
+  <h1 class="edit__title">{{ "Editar catalogo" | titlecase }}</h1>
+
+  <section class="back" (click)="goToList()">
+    <i class="pi pi-angle-left"></i> Volver
+  </section>
+
+  <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+    <span class="p-float-label form__row">
+      <input
+        id="float-input"
+        type="text"
+        formControlName="catalogName"
+        pInputText
+        autocomplete="off"
+      />
+      <label for="float-input">Nombre del catalogo</label>
+    </span>
+
+    <span class="p-float-label form__row">
+      <input
+        id="float-input"
+        type="text"
+        formControlName="catalogType"
+        pInputText
+        autocomplete="off"
+      />
+      <label for="float-input">Tipo del catalogo</label>
+    </span>
+
+    <button
+      pButton
+      type="submit"
+      label="Guardar"
+      [style.width]="'100%'"
+    ></button>
+  </form>
 </section>

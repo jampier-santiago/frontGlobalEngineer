@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap, BehaviorSubject } from 'rxjs';
 
 // --- Interfaces ---
-import { Catalog } from './listar/catalogos.interfaces';
+import { Catalog } from './catalogos.interfaces';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'content-type': 'application/json' }),
@@ -41,6 +41,10 @@ export class CatalogosService {
   getCatalogById(id: string | number) {
     return this._http
       .get(`http://localhost:3000/catalogo/${id}`, httpOptions)
-      .pipe(tap((response) => this._catalogs.next(response as any)));
+      .pipe(tap((response) => this._catalogs.next(response as Catalog[])));
+  }
+
+  putCatalog(body: Catalog) {
+    return this._http.put('http://localhost:3000/catalogo', body, httpOptions);
   }
 }
