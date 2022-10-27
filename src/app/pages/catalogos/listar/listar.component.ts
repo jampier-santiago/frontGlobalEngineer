@@ -36,7 +36,7 @@ export class ListarComponent implements OnInit {
       (error) => {
         if (error.status === 404 || error.status === '404') {
           this.id = '';
-          this.messageService.add({
+          this._messageService.add({
             key: 'toastError',
             severity: 'error',
             summary: 'Error en la busqueda',
@@ -53,13 +53,17 @@ export class ListarComponent implements OnInit {
   }
 
   goToEdit(id: string) {
-    this.router.navigateByUrl(`catalogos/editar/${id}`);
+    this._router.navigateByUrl(`catalogos/editar/${id}`);
+  }
+
+  goToAdd() {
+    this._router.navigateByUrl('catalogos/add');
   }
 
   constructor(
     private _catalogsService: CatalogosService,
-    private messageService: MessageService,
-    private router: Router
+    private _messageService: MessageService,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {

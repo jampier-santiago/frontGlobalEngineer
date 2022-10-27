@@ -16,7 +16,6 @@ import { Catalog } from '../catalogos.interfaces';
   styleUrls: ['./editar.component.scss'],
 })
 export class EditarComponent implements OnInit {
-  [x: string]: any;
   private _id: string = '';
 
   public form = new FormGroup({

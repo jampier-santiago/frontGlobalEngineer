@@ -18,6 +18,7 @@ export class CatalogosService {
    *
    * @private
    */
+  private _url: string = 'http://localhost:3000/catalogo';
   private _catalogs: BehaviorSubject<Catalog[] | null> = new BehaviorSubject(
     null
   ) as BehaviorSubject<Catalog[] | null>;
@@ -34,17 +35,21 @@ export class CatalogosService {
 
   getAllCatalogs() {
     return this._http
-      .get('http://localhost:3000/catalogo', httpOptions)
+      .get(this._url, httpOptions)
       .pipe(tap((response) => this._catalogs.next(response as any)));
   }
 
   getCatalogById(id: string | number) {
     return this._http
-      .get(`http://localhost:3000/catalogo/${id}`, httpOptions)
+      .get(`${this._url}/${id}`, httpOptions)
       .pipe(tap((response) => this._catalogs.next(response as Catalog[])));
   }
 
   putCatalog(body: Catalog) {
-    return this._http.put('http://localhost:3000/catalogo', body, httpOptions);
+    return this._http.put(this._url, body, httpOptions);
+  }
+
+  postCatalog(body: Catalog) {
+    return this._http.post(this._url, body);
   }
 }

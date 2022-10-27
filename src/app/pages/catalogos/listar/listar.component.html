@@ -17,7 +17,7 @@
       (onBlurInput)="onChangeInput($event)"
     ></app-text-input>
 
-    <div class="">
+    <div>
       <button
         pButton
         type="button"
@@ -27,6 +27,19 @@
         (click)="searchCatalog()"
       ></button>
     </div>
+  </div>
+
+  <div class="list__add">
+    <button
+      pButton
+      type="button"
+      label="Agregar"
+      [style.width]="'150px'"
+      class="p-button-outlined button"
+      icon="pi pi-plus"
+      iconPos="left"
+      (click)="goToAdd()"
+    ></button>
   </div>
 
   <section class="list__container-table">
