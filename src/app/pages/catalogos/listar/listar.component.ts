@@ -1,7 +1,12 @@
+// --- Dependencies ---
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 
+// --- Services ---
 import { CatalogosService } from '../catalogos.service';
+
+// --- Interfaces ---
 import { Catalog } from './catalogos.interfaces';
 
 @Component({
@@ -47,9 +52,14 @@ export class ListarComponent implements OnInit {
     );
   }
 
+  goToEdit(id: string) {
+    this.router.navigateByUrl(`catalogos/editar/${id}`);
+  }
+
   constructor(
     private _catalogsService: CatalogosService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {

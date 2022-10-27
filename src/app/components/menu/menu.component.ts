@@ -56,11 +56,6 @@ export class MenuComponent implements OnInit {
             routerLink: `/${group.baseUrl}/agregar`,
           },
           {
-            label: 'Editar',
-            icon: 'pi pi-fw pi-pencil',
-            routerLink: `/${group.baseUrl}/editar`,
-          },
-          {
             label: 'Listar',
             icon: 'pi pi-fw pi-list',
             routerLink: `/${group.baseUrl}/listar`,

@@ -22,7 +22,7 @@ export class HomeService {
     });
 
     if (userValid) {
-      this.router.navigate(['dashboard']);
+      this.router.navigateByUrl('dashboard');
     } else {
       return 'Los datos no corresponden a un usuario registrado';
     }

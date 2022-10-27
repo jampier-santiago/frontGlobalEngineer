@@ -36,6 +36,7 @@
           <th>Id Catalogo</th>
           <th>Tipo Catalogo</th>
           <th>Nombre Catalogo</th>
+          <th>Acciones</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-catalog>
@@ -43,6 +44,16 @@
           <td>{{ catalog.Id_Catalogo }}</td>
           <td>{{ catalog.Tipo_Catalogo }}</td>
           <td>{{ catalog.Nombre_Catalogo }}</td>
+          <td>
+            <button
+              pButton
+              type="button"
+              label="Editar"
+              [style.width]="'150px'"
+              class="button"
+              (click)="goToEdit(catalog.Id_Catalogo)"
+            ></button>
+          </td>
         </tr>
       </ng-template>
     </p-table>
