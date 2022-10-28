@@ -35,13 +35,13 @@ export class CatalogosService {
 
   getAllCatalogs() {
     return this._http
-      .get(this._url, httpOptions)
+      .get(this._url)
       .pipe(tap((response) => this._catalogs.next(response as any)));
   }
 
   getCatalogById(id: string | number) {
     return this._http
-      .get(`${this._url}/${id}`, httpOptions)
+      .get(`${this._url}/${id}`)
       .pipe(tap((response) => this._catalogs.next(response as Catalog[])));
   }
 
