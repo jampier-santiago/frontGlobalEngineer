@@ -5,3 +5,8 @@ export interface Contacto {
   Nombre_contacto: string;
   Apellido_Contacto: string;
 }
+
+export interface ContactType {
+  name: string;
+  code: string;
+}

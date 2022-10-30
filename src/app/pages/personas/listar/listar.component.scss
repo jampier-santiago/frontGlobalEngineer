@@ -1,0 +1,33 @@
+.people {
+  width: 95%;
+  margin: auto;
+  margin-top: 35px;
+  box-sizing: border-box;
+
+  &__title {
+    font-size: 36px;
+    margin: 0;
+  }
+
+  &__nav-search {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 35px;
+
+    .button {
+      margin-left: 40px;
+    }
+  }
+
+  &__add {
+    width: 100%;
+    margin: 40px 0;
+  }
+
+  &__container-table {
+    width: 100%;
+    margin-top: 50px;
+  }
+}

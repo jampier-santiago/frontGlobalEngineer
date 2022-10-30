@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap, BehaviorSubject } from 'rxjs';
 
 // --- Interfaces ---
-import { Contacto } from './contactos.interfaces';
+import { Contacto, ContactType } from './contactos.interfaces';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'content-type': 'application/json' }),
@@ -22,6 +22,8 @@ export class ContactosService {
   private _contactos: BehaviorSubject<Contacto[] | null> = new BehaviorSubject(
     null
   ) as BehaviorSubject<Contacto[] | null>;
+  private _contactType: BehaviorSubject<ContactType[] | null> =
+    new BehaviorSubject(null) as BehaviorSubject<ContactType[] | null>;
 
   /**
    *
@@ -43,5 +45,13 @@ export class ContactosService {
     return this._http
       .get(`${this._url}/${id}`)
       .pipe(tap((response) => this._contactos.next(response as Contacto[])));
+  }
+
+  putContact(body: Contacto) {
+    return this._http.put(this._url, body, httpOptions);
+  }
+
+  postContact(body: Contacto) {
+    return this._http.post(this._url, body);
   }
 }

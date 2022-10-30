@@ -1,1 +1,97 @@
-<p>listar Personas!</p>
+<p-toast
+  position="top-center"
+  severity="success"
+  summary="Summary Text"
+  [baseZIndex]="5000"
+  key="toastError"
+></p-toast>
+
+<section class="people">
+  <h1 class="people__title">Lista de los contactos</h1>
+
+  <div class="people__nav-search">
+    <app-text-input
+      label="Id del catalogo"
+      type="text"
+      width="400px"
+      (onBlurInput)="onChangeInput($event)"
+    ></app-text-input>
+
+    <div>
+      <button
+        pButton
+        type="button"
+        label="Buscar"
+        [style.width]="'200px'"
+        class="button"
+        (click)="searchContact()"
+      ></button>
+    </div>
+  </div>
+
+  <div class="people__add">
+    <button
+      pButton
+      type="button"
+      label="Agregar"
+      [style.width]="'150px'"
+      class="p-button-outlined button"
+      icon="pi pi-plus"
+      iconPos="left"
+      (click)="goToAdd()"
+    ></button>
+  </div>
+
+  <section class="people__container-table">
+    <p-table
+      [value]="people"
+      [scrollable]="true"
+      responsiveLayout="scroll"
+      scrollHeight="400px"
+      class="p-datatable-lg p-datatable-gridlines"
+      scrollDirection="both"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 200px">Id</th>
+          <th style="width: 200px">Primer Nombre</th>
+          <th style="width: 200px">Segundo Nombre</th>
+          <th style="width: 200px">Primer Apellido</th>
+          <th style="width: 200px">Segundo Apellido</th>
+          <th style="width: 200px">Sexo</th>
+          <th style="width: 200px">Fecha de nacimiento</th>
+          <th style="width: 200px">Tipo documneto</th>
+          <th style="width: 200px"># de documento</th>
+          <th style="width: 200px">Rol</th>
+          <th style="width: 200px">Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-people>
+        <tr>
+          <td style="width: 200px">{{ people.Id_Encargado }}</td>
+          <td style="width: 200px">{{ people.Nom1_Encargado }}</td>
+          <td style="width: 200px">{{ people.Nom2_Encargado }}</td>
+          <td style="width: 200px">{{ people.Apell1_Encargado }}</td>
+          <td style="width: 200px">{{ people.Apell2_Encargado }}</td>
+          <td style="width: 200px">{{ people.Sexo_Encargado }}</td>
+          <td style="width: 200px">
+            {{ people.FechaNacimiento_Encargado | date }}
+          </td>
+          <td style="width: 200px">{{ people.TIPO_identificacion }}</td>
+          <td style="width: 200px">{{ people.num_Doc_Encargado | number }}</td>
+          <td style="width: 200px">{{ people.Rol_encargado }}</td>
+          <td style="width: 200px">
+            <button
+              pButton
+              type="button"
+              label="Editar"
+              [style.width]="'150px'"
+              class="button"
+              (click)="goToEdit(people.Id_Encargado)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>
+</section>

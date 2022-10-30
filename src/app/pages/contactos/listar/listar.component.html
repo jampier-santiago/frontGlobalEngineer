@@ -1,3 +1,11 @@
+<p-toast
+  position="top-center"
+  severity="success"
+  summary="Summary Text"
+  [baseZIndex]="5000"
+  key="toastError"
+></p-toast>
+
 <section class="contact">
   <h1 class="contact__title">Lista de los contactos</h1>
 
@@ -66,7 +74,7 @@
               label="Editar"
               [style.width]="'150px'"
               class="button"
-              (click)="goToEdit(contact.Id_Catalogo)"
+              (click)="goToEdit(contact.Id_Contactos)"
             ></button>
           </td>
         </tr>

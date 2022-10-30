@@ -13,6 +13,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
 // --- Services ---
 import { ContactosService } from './contactos.service';
 import { MessageService } from 'primeng/api';
+import { GeneralService } from 'src/app/services/general.service';
 
 // --- Components ---
 import { ListarComponent } from './listar/listar.component';
@@ -31,6 +32,6 @@ import { AgregarComponent } from './agregar/agregar.component';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [ContactosService, MessageService],
+  providers: [ContactosService, MessageService, GeneralService],
 })
 export class ContactosModule {}

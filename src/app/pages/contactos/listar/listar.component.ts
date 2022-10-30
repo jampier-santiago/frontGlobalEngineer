@@ -1,9 +1,9 @@
 // --- Dependencies ---
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 
 // --- Services ---
+import { MessageService } from 'primeng/api';
 import { ContactosService } from '../contactos.service';
 
 // --- interfaces ---
