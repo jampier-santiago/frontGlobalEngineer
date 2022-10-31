@@ -35,5 +35,46 @@ export class PersonasService {
       .pipe(tap((response) => this._people.next(response as Person[])));
   }
 
+  putPerson({
+    Apell1_Encargado,
+    Apell2_Encargado,
+    FechaNacimiento_Encargado,
+    Id_Encargado,
+    Nom1_Encargado,
+    Nom2_Encargado,
+    Rol_Encargado,
+    Sexo_Encargado,
+    Tip_Doc_Encargado,
+    num_Doc_Encargado,
+  }: Person) {
+    console.log({
+      Apell1_Encargado,
+      Apell2_Encargado,
+      FechaNacimiento_Encargado,
+      Id_Encargado,
+      Nom1_Encargado,
+      Nom2_Encargado,
+      Rol_Encargado,
+      Sexo_Encargado,
+      Tip_Doc_Encargado,
+      num_Doc_Encargado,
+    });
+
+    const body = {
+      Apell1_Encargado,
+      Apell2_Encargado,
+      FechaNacimiento_Encargado,
+      Id_Encargado,
+      Nom1_Encargado,
+      Nom2_Encargado,
+      Rol_Encargado,
+      Sexo_Encargado,
+      Tip_Doc_Encargado,
+      num_Doc_Encargado,
+    };
+
+    return this._http.put(this._url, body, httpOptions);
+  }
+
   constructor(private _http: HttpClient) {}
 }

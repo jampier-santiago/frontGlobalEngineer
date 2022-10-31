@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { PersonasRoutingModule } from './personas-routing.module';
 import { LayoutsModule } from 'src/app/layouts/layouts.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // --- Components ---
 import { ListarComponent } from './listar/listar.component';
@@ -28,6 +29,8 @@ import { PersonasService } from './personas.service';
     PrimeNgModule,
     ComponentsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [MessageService, GeneralService, PersonasService],
 })

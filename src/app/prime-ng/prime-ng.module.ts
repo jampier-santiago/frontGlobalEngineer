@@ -10,6 +10,7 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { CascadeSelectModule } from 'primeng/cascadeselect';
     FieldsetModule,
     TableModule,
     CascadeSelectModule,
+    DropdownModule,
   ],
   exports: [
     InputTextModule,
@@ -29,6 +31,7 @@ import { CascadeSelectModule } from 'primeng/cascadeselect';
     TableModule,
     ToastModule,
     CascadeSelectModule,
+    DropdownModule,
   ],
 })
 export class PrimeNgModule {}
