@@ -1,5 +1,5 @@
 export interface Person {
-  Id_Encargado: string;
+  Id_Encargado?: string;
   Nom1_Encargado: string;
   Nom2_Encargado: string;
   Apell1_Encargado: string;

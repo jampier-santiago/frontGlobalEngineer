@@ -47,7 +47,7 @@ export class PersonasService {
     Tip_Doc_Encargado,
     num_Doc_Encargado,
   }: Person) {
-    console.log({
+    const body = {
       Apell1_Encargado,
       Apell2_Encargado,
       FechaNacimiento_Encargado,
@@ -58,8 +58,24 @@ export class PersonasService {
       Sexo_Encargado,
       Tip_Doc_Encargado,
       num_Doc_Encargado,
-    });
+    };
+    console.log({ body });
 
+    return this._http.put(this._url, body, httpOptions);
+  }
+
+  postPerson({
+    Apell1_Encargado,
+    Apell2_Encargado,
+    FechaNacimiento_Encargado,
+    Id_Encargado,
+    Nom1_Encargado,
+    Nom2_Encargado,
+    Rol_Encargado,
+    Sexo_Encargado,
+    Tip_Doc_Encargado,
+    num_Doc_Encargado,
+  }: Person) {
     const body = {
       Apell1_Encargado,
       Apell2_Encargado,
@@ -73,7 +89,7 @@ export class PersonasService {
       num_Doc_Encargado,
     };
 
-    return this._http.put(this._url, body, httpOptions);
+    return this._http.post(this._url, body, httpOptions);
   }
 
   constructor(private _http: HttpClient) {}

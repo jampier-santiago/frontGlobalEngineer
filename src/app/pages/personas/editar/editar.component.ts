@@ -70,8 +70,6 @@ export class EditarComponent implements OnInit {
       num_Doc_Encargado &&
       Rol_Encargado
     ) {
-      console.log(this.form.value);
-
       this._personasService
         .putPerson({
           Id_Encargado: this._id,
