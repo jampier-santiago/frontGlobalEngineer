@@ -52,6 +52,6 @@ export class ContactosService {
   }
 
   postContact(body: SendContact) {
-    return this._http.post(this._url, body);
+    return this._http.post(this._url, body, httpOptions);
   }
 }

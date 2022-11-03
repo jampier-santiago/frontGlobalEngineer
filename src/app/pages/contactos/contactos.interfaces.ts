@@ -1,5 +1,5 @@
 interface BaseContact {
-  Id_Contactos: string;
+  Id_Contactos?: string;
   Dato_Contacto: string;
   Tipo_Contacto: string;
 }

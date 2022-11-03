@@ -1,1 +1,63 @@
+<p-toast
+  position="top-center"
+  severity="success"
+  summary="Summary Text"
+  [baseZIndex]="4000"
+  key="toastError"
+  (onClose)="goToList()"
+></p-toast>
+
+<section class="add">
+  <h1 class="edit__title">{{ "Editar contacto" | titlecase }}</h1>
+
+  <section class="back" (click)="goToList()">
+    <i class="pi pi-angle-left"></i> Volver
+  </section>
+
+  <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+    <span class="p-float-label form__row">
+      <label for="nameContact" class="label-select">Nombre de la persona</label>
+
+      <p-dropdown
+        id="nameContact"
+        formControlName="nameContact"
+        [options]="people"
+        optionLabel="name"
+        [style]="{ minWidth: '14rem', width: '100%' }"
+        placeholder="Tipo de contacto"
+      ></p-dropdown>
+    </span>
+
+    <span class="p-float-label form__row">
+      <input
+        id="contactValue"
+        type="text"
+        formControlName="contactValue"
+        pInputText
+        autocomplete="off"
+      />
+      <label for="contactValue">Contacto</label>
+    </span>
+
+    <span class="p-float-label form__row">
+      <label for="typeContact" class="label-select">Tipo de contacto</label>
+
+      <p-dropdown
+        id="typeContact"
+        formControlName="typeContact"
+        [options]="contactType"
+        optionLabel="name"
+        [style]="{ minWidth: '14rem', width: '100%' }"
+        placeholder="Tipo de contacto"
+      ></p-dropdown>
+    </span>
+
+    <button
+      pButton
+      type="submit"
+      label="Guardar"
+      [style.width]="'100%'"
+    ></button>
+  </form>
+</section>
 <p>agregar Contactos!</p>
