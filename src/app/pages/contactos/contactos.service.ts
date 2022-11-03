@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap, BehaviorSubject } from 'rxjs';
 
 // --- Interfaces ---
-import { Contacto, ContactType, SendContact } from './contactos.interfaces';
+import { Contacto, SendContact } from './contactos.interfaces';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'content-type': 'application/json' }),
@@ -22,8 +22,6 @@ export class ContactosService {
   private _contactos: BehaviorSubject<Contacto[] | null> = new BehaviorSubject(
     null
   ) as BehaviorSubject<Contacto[] | null>;
-  private _contactType: BehaviorSubject<ContactType[] | null> =
-    new BehaviorSubject(null) as BehaviorSubject<ContactType[] | null>;
 
   /**
    *

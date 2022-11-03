@@ -1,1 +1,86 @@
-<p>listar works!</p>
+<p-toast
+  position="top-center"
+  severity="success"
+  summary="Summary Text"
+  [baseZIndex]="5000"
+  key="toastError"
+></p-toast>
+
+<section class="products">
+  <h1 class="products__title">Lista de los productos</h1>
+
+  <div class="products__nav-search">
+    <app-text-input
+      label="Id del catalogo"
+      type="text"
+      width="400px"
+      (onBlurInput)="onChangeInput($event)"
+    ></app-text-input>
+
+    <div>
+      <button
+        pButton
+        type="button"
+        label="Buscar"
+        [style.width]="'200px'"
+        class="button"
+        (click)="searchContact()"
+      ></button>
+    </div>
+  </div>
+
+  <div class="products__add">
+    <button
+      pButton
+      type="button"
+      label="Agregar"
+      [style.width]="'150px'"
+      class="p-button-outlined button"
+      icon="pi pi-plus"
+      iconPos="left"
+      (click)="goToAdd()"
+    ></button>
+  </div>
+
+  <section class="products__container-table">
+    <p-table
+      [value]="products"
+      [scrollable]="true"
+      responsiveLayout="scroll"
+      scrollHeight="400px"
+      class="p-datatable-lg p-datatable-gridlines"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id Producto</th>
+          <th>Nombre Producto</th>
+          <th>Peso Producto</th>
+          <th>Dimensiones Producto</th>
+          <th>Tipo Producto</th>
+          <th>Estilo Producto</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ product.Id_Producto }}</td>
+          <td>{{ product.Nombre_Producto }}</td>
+          <td>{{ product.Peso_Producto }}</td>
+          <td>{{ product.Dimensiones_Producto }}</td>
+          <td>{{ product.Tipo_producto }}</td>
+          <td>{{ product.Estilo_Producto }}</td>
+          <td>
+            <button
+              pButton
+              type="button"
+              label="Editar"
+              [style.width]="'150px'"
+              class="button"
+              (click)="goToEdit(product.Id_Producto)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>
+</section>
