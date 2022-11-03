@@ -37,5 +37,22 @@ export class GeneralService {
       );
   }
 
+  getPeople() {
+    return this._http.get('http://localhost:3000/personas').pipe(
+      map((result) => {
+        const dataPeople: Item[] = [];
+
+        (result as any[]).forEach((element) => {
+          dataPeople.push({
+            code: element.Id_Encargado,
+            name: `${element.Nom1_Encargado} ${element.Nom2_Encargado} ${element.Apell1_Encargado} ${element.Apell2_Encargado}`,
+          });
+        });
+
+        return dataPeople;
+      })
+    );
+  }
+
   constructor(private _http: HttpClient) {}
 }

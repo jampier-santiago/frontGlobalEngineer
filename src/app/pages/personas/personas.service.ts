@@ -59,8 +59,6 @@ export class PersonasService {
       Tip_Doc_Encargado,
       num_Doc_Encargado,
     };
-    console.log({ body });
-
     return this._http.put(this._url, body, httpOptions);
   }
 
