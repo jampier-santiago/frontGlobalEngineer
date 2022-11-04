@@ -1,6 +1,7 @@
 // --- Dependencies ---
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 // --- Services ---
 import { ContactosService } from '../contactos.service';
@@ -10,9 +11,8 @@ import { GeneralService } from 'src/app/services/general.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 // --- Interfaces ---
-import { Contacto, ContactType } from '../contactos.interfaces';
+import { ContactType } from '../contactos.interfaces';
 import { Select } from 'src/app/services/general.interfaces';
-import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-agregar',

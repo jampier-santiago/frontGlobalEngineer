@@ -40,4 +40,8 @@ export class ProductosService {
       .get(`${this._url}/${id}`)
       .pipe(tap((response) => this._products.next(response as Product[])));
   }
+
+  postProduct(body: Product) {
+    return this._http.post(this._url, body, httpOptions);
+  }
 }
