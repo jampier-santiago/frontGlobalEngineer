@@ -10,11 +10,22 @@
   }
 
   &__nav-search {
-    width: 500px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 35px;
+
+    .input {
+      display: flex;
+      align-items: center;
+
+      h5 {
+        font-size: 16px;
+        margin: 0;
+        margin-right: 10px;
+      }
+    }
 
     .button {
       margin-left: 40px;

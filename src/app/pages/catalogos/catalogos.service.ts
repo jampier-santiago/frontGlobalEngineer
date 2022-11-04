@@ -1,5 +1,5 @@
 // --- Dependencies ---
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap, BehaviorSubject } from 'rxjs';
 
@@ -51,5 +51,16 @@ export class CatalogosService {
 
   postCatalog(body: Catalog) {
     return this._http.post(this._url, body);
+  }
+
+  getCatalogType(type: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'content-type': 'application/json' }),
+      params: new HttpParams().append('type', type),
+    };
+
+    return this._http
+      .get(`http://localhost:3000/catalogo/tipos/data`, httpOptions)
+      .pipe(tap((response) => this._catalogs.next(response as Catalog[])));
   }
 }

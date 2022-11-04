@@ -8,6 +8,8 @@ import { CatalogosService } from '../catalogos.service';
 
 // --- Interfaces ---
 import { Catalog } from '../catalogos.interfaces';
+import { Select } from 'src/app/services/general.interfaces';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-listar',
@@ -17,6 +19,13 @@ import { Catalog } from '../catalogos.interfaces';
 export class ListarComponent implements OnInit {
   public catalogs: Catalog[] = [];
   public id: string = '';
+  public searchById: boolean = true;
+  public groupCatalogs: Select[] = [];
+
+  selectTypeCatalog(event: any) {
+    const type = event.value.name;
+    this._catalogsService.getCatalogType(type).subscribe();
+  }
 
   onChangeInput(value: string) {
     if (value) {
@@ -67,7 +76,27 @@ export class ListarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._catalogsService.getAllCatalogs().subscribe();
+    this._catalogsService
+      .getAllCatalogs()
+      .pipe(
+        tap((data) => {
+          const elements: string[] = [];
+          const dataSelect: Select[] = [];
+
+          (data as any).forEach((element: any) => {
+            if (!elements.includes(element.Tipo_Catalogo)) {
+              elements.push(element.Tipo_Catalogo);
+              dataSelect.push({
+                code: dataSelect.length.toString(),
+                name: element.Tipo_Catalogo,
+              });
+            }
+          });
+
+          this.groupCatalogs = dataSelect;
+        })
+      )
+      .subscribe();
     this._catalogsService.catalogs$.subscribe((data) => (this.catalogs = data));
   }
 }

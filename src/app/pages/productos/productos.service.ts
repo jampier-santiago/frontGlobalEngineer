@@ -44,4 +44,8 @@ export class ProductosService {
   postProduct(body: Product) {
     return this._http.post(this._url, body, httpOptions);
   }
+
+  putProduct(body: Product) {
+    return this._http.put(this._url, body, httpOptions);
+  }
 }

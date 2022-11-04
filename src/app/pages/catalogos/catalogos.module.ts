@@ -18,6 +18,7 @@ import { ListarComponent } from './listar/listar.component';
 // --- Services ---
 import { CatalogosService } from './catalogos.service';
 import { MessageService } from 'primeng/api';
+import { GeneralService } from 'src/app/services/general.service';
 
 @NgModule({
   declarations: [AgregarComponent, EditarComponent, ListarComponent],
@@ -31,6 +32,6 @@ import { MessageService } from 'primeng/api';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [CatalogosService, MessageService],
+  providers: [CatalogosService, MessageService, GeneralService],
 })
 export class CatalogosModule {}

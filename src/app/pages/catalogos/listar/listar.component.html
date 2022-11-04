@@ -10,22 +10,42 @@
   <h1 class="list__title">Lista de los catalogos</h1>
 
   <div class="list__nav-search">
-    <app-text-input
-      label="Id del catalogo"
-      type="text"
-      width="400px"
-      (onBlurInput)="onChangeInput($event)"
-    ></app-text-input>
+    <div class="input" *ngIf="searchById; else searchByCategory">
+      <app-text-input
+        label="Id del catalogo"
+        type="text"
+        width="400px"
+        (onBlurInput)="onChangeInput($event)"
+      ></app-text-input>
 
-    <div>
-      <button
-        pButton
-        type="button"
-        label="Buscar"
-        [style.width]="'200px'"
-        class="button"
-        (click)="searchCatalog()"
-      ></button>
+      <div>
+        <button
+          pButton
+          type="button"
+          label="Buscar"
+          [style.width]="'200px'"
+          class="button"
+          (click)="searchCatalog()"
+        ></button>
+      </div>
+    </div>
+
+    <ng-template #searchByCategory>
+      <p-dropdown
+        id="groupCatalogs"
+        inputId="groupCatalogs"
+        [options]="groupCatalogs"
+        optionLabel="name"
+        [style]="{ minWidth: '14rem', width: '100%' }"
+        placeholder="Tipo de catalogo"
+        dataKey="value"
+        (onChange)="selectTypeCatalog($event)"
+      ></p-dropdown>
+    </ng-template>
+
+    <div class="input">
+      <h5>Buscar por ID</h5>
+      <p-inputSwitch [(ngModel)]="searchById"></p-inputSwitch>
     </div>
   </div>
 
