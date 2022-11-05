@@ -1,1 +1,91 @@
-<p>listar works!</p>
+<p-toast
+  position="top-center"
+  severity="success"
+  summary="Summary Text"
+  [baseZIndex]="5000"
+  key="toastError"
+></p-toast>
+
+<section class="productions">
+  <h1 class="productions__title">Lista de producciones</h1>
+
+  <div class="productions__nav-search">
+    <app-text-input
+      label="Id del catalogo"
+      type="text"
+      width="400px"
+      (onBlurInput)="onChangeInput($event)"
+    ></app-text-input>
+
+    <div>
+      <button
+        pButton
+        type="button"
+        label="Buscar"
+        [style.width]="'200px'"
+        class="button"
+        (click)="searchContact()"
+      ></button>
+    </div>
+  </div>
+
+  <div class="productions__add">
+    <button
+      pButton
+      type="button"
+      label="Agregar"
+      [style.width]="'150px'"
+      class="p-button-outlined button"
+      icon="pi pi-plus"
+      iconPos="left"
+      (click)="goToAdd()"
+    ></button>
+  </div>
+
+  <section class="productions__container-table">
+    <p-table
+      [value]="productions"
+      [scrollable]="true"
+      responsiveLayout="scroll"
+      scrollHeight="400px"
+      class="p-datatable-lg p-datatable-gridlines"
+      scrollDirection="both"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 200px">Id</th>
+          <th style="width: 200px">Fecha producción</th>
+          <th style="width: 200px">Nombre encargado</th>
+          <th style="width: 200px">Apellido encargadoe</th>
+          <th style="width: 200px">Nombre Producto</th>
+          <th style="width: 200px">Total productos</th>
+          <th style="width: 200px">Productos Defectuosos</th>
+          <th style="width: 200px">Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-people>
+        <tr>
+          <td style="width: 200px">{{ people["Id_Producción"] }}</td>
+          <td style="width: 200px">{{ people.Fecha | date }}</td>
+          <td style="width: 200px">{{ people.Nombre_encargado }}</td>
+          <td style="width: 200px">{{ people.Apellido_encargado }}</td>
+          <td style="width: 200px">{{ people.Nombre_Producto }}</td>
+          <td style="width: 200px">{{ people.num_totalProduccion }}</td>
+          <td style="width: 200px">
+            {{ people["num_Defectuosos_Producción"] }}
+          </td>
+          <td style="width: 200px">
+            <button
+              pButton
+              type="button"
+              label="Editar"
+              [style.width]="'150px'"
+              class="button"
+              (click)="goToEdit(people.Id_Encargado)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>
+</section>
