@@ -1,1 +1,91 @@
-<p>editar works!</p>
+<p-toast
+  position="top-center"
+  severity="success"
+  summary="Summary Text"
+  [baseZIndex]="5000"
+  key="toast"
+  (onClose)="goToList()"
+></p-toast>
+
+<section class="edit">
+  <h1 class="edit__title">{{ "Editar produccion" | titlecase }}</h1>
+
+  <section class="back" (click)="goToList()">
+    <i class="pi pi-angle-left"></i> Volver
+  </section>
+
+  <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+    <span class="p-float-label form__row">
+      <label for="date" class="label-select">Fecha de producción</label>
+
+      <input
+        id="date"
+        type="date"
+        formControlName="Fecha_Produccion"
+        pInputText
+        autocomplete="off"
+      />
+    </span>
+
+    <span class="p-float-label form__row">
+      <label for="nameContact" class="label-select">Nombre del encargado</label>
+
+      <p-dropdown
+        id="nameContact"
+        formControlName="Id_Empleado_Produccion"
+        [options]="people"
+        optionLabel="name"
+        [style]="{ minWidth: '14rem', width: '100%' }"
+        placeholder="Nombre del encargado"
+      ></p-dropdown>
+    </span>
+
+    <span class="p-float-label form__row">
+      <label for="nameProduct" class="label-select">Producto</label>
+
+      <p-dropdown
+        id="nameProduct"
+        formControlName="Id_Producto_Produccion"
+        [options]="product"
+        optionLabel="name"
+        [style]="{ minWidth: '14rem', width: '100%' }"
+        placeholder="Nombre del producto"
+      ></p-dropdown>
+    </span>
+
+    <span class="p-float-label form__row">
+      <label for="totalProducts" class="label-select"
+        >Numero total de productos</label
+      >
+
+      <input
+        id="totalProducts"
+        type="number"
+        formControlName="num_totalProduccion"
+        pInputText
+        autocomplete="off"
+      />
+    </span>
+
+    <span class="p-float-label form__row">
+      <label for="defectiveProducts" class="label-select"
+        >Cantidad de productos defectuosos</label
+      >
+
+      <input
+        id="defectiveProducts"
+        type="text"
+        formControlName="num_Defectuosos_Produccion"
+        pInputText
+        autocomplete="off"
+      />
+    </span>
+
+    <button
+      pButton
+      type="submit"
+      label="Guardar"
+      [style.width]="'100%'"
+    ></button>
+  </form>
+</section>

@@ -65,14 +65,14 @@
       </ng-template>
       <ng-template pTemplate="body" let-people>
         <tr>
-          <td style="width: 200px">{{ people["Id_Producción"] }}</td>
+          <td style="width: 200px">{{ people.Id_Produccion }}</td>
           <td style="width: 200px">{{ people.Fecha | date }}</td>
           <td style="width: 200px">{{ people.Nombre_encargado }}</td>
           <td style="width: 200px">{{ people.Apellido_encargado }}</td>
           <td style="width: 200px">{{ people.Nombre_Producto }}</td>
           <td style="width: 200px">{{ people.num_totalProduccion }}</td>
           <td style="width: 200px">
-            {{ people["num_Defectuosos_Producción"] }}
+            {{ people.num_Defectuosos_Produccion }}
           </td>
           <td style="width: 200px">
             <button
@@ -81,7 +81,7 @@
               label="Editar"
               [style.width]="'150px'"
               class="button"
-              (click)="goToEdit(people.Id_Encargado)"
+              (click)="goToEdit(people.Id_Produccion)"
             ></button>
           </td>
         </tr>
