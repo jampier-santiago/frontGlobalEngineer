@@ -58,5 +58,9 @@ export class ProductionsService {
     return this._http.put(this._url, body, httpOptions);
   }
 
+  postProduct(body: ProductionAdd) {
+    return this._http.post(this._url, body, httpOptions);
+  }
+
   constructor(private _http: HttpClient) {}
 }
