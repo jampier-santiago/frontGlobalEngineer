@@ -1,1 +1,86 @@
-<p>listar works!</p>
+<p-toast
+  position="top-center"
+  severity="success"
+  summary="Summary Text"
+  [baseZIndex]="5000"
+  key="toastError"
+></p-toast>
+
+<section class="list">
+  <h1 class="list__title">Lista de los ingredientes</h1>
+
+  <div class="list__nav-search">
+    <app-text-input
+      label="Id del ingrediente"
+      type="text"
+      width="400px"
+      (onBlurInput)="onChangeInput($event)"
+    ></app-text-input>
+
+    <div>
+      <button
+        pButton
+        type="button"
+        label="Buscar"
+        [style.width]="'200px'"
+        class="button"
+        (click)="searchContact()"
+      ></button>
+    </div>
+  </div>
+
+  <div class="list__add">
+    <button
+      pButton
+      type="button"
+      label="Agregar"
+      [style.width]="'150px'"
+      class="p-button-outlined button"
+      icon="pi pi-plus"
+      iconPos="left"
+      (click)="goToAdd()"
+    ></button>
+  </div>
+
+  <section class="list__container-table">
+    <p-table
+      [value]="ingredientes"
+      [scrollable]="true"
+      responsiveLayout="scroll"
+      scrollHeight="400px"
+      class="p-datatable-lg p-datatable-gridlines"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Proveedor</th>
+          <th>telefono Proveedor</th>
+          <th>Uso Ingrediente</th>
+          <th>Tipo Ingrediente</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-ingrediente>
+        <tr>
+          <td>{{ ingrediente.Id_Ingrediente }}</td>
+          <td>{{ ingrediente.Nombre_Ingrediente }}</td>
+          <td>{{ ingrediente.Proveedor_Ingrediente }}</td>
+          <td>{{ ingrediente.tel_Proveedor_Ingrediente }}</td>
+          <td>{{ ingrediente.Uso_Ingrediente }}</td>
+          <td>{{ ingrediente.Tipo_Ingrediente }}</td>
+          <td>
+            <button
+              pButton
+              type="button"
+              label="Editar"
+              [style.width]="'150px'"
+              class="button"
+              (click)="goToEdit(ingrediente.Id_Ingrediente)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>
+</section>
