@@ -59,7 +59,7 @@ export class EditarComponent implements OnInit {
       };
 
       this._ingredientesX_ProductsoService
-        .putProduct(body)
+        .putElement(body)
         .subscribe((result: any) => {
           if ((result as any).msg === 'Registro actualizado') {
             this._messageService.add({

@@ -45,8 +45,12 @@ export class IngredientesXProductosService {
       .pipe(tap((response) => this._elements.next(response as any)));
   }
 
-  putProduct(body: IngredientesX_Producto) {
+  putElement(body: IngredientesX_Producto) {
     return this._http.put(this._url, body, httpOptions);
+  }
+
+  postProduct(body: IngredientesX_Producto) {
+    return this._http.post(this._url, body, httpOptions);
   }
 
   getProducts() {

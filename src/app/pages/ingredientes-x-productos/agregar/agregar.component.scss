@@ -1,0 +1,39 @@
+.add {
+  width: 50%;
+  margin: auto;
+  margin-top: 45px;
+
+  &__title {
+    font-size: 36px;
+    margin: 0;
+  }
+}
+
+.back {
+  width: 100%;
+  margin: 35px 0;
+  font-size: 18px;
+  color: var(--blue-500);
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.form {
+  margin-top: 70px;
+
+  &__row {
+    width: 100%;
+    margin-bottom: 65px;
+    position: relative;
+
+    input {
+      width: 100%;
+    }
+
+    .label-select {
+      position: absolute;
+      top: -20px;
+    }
+  }
+}
