@@ -1,7 +1,8 @@
 // --- Dependencies ---
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap, BehaviorSubject } from 'rxjs';
+import { Observable, tap, BehaviorSubject, map } from 'rxjs';
+import { Select } from '../personas/personas.interfaces';
 
 // --- Interfaces ---
 import { IngredientesX_Producto } from './ingredientes-x-producto.interfaces';
@@ -42,5 +43,39 @@ export class IngredientesXProductosService {
     return this._http
       .get(`${this._url}/${id}`)
       .pipe(tap((response) => this._elements.next(response as any)));
+  }
+
+  putProduct(body: IngredientesX_Producto) {
+    return this._http.put(this._url, body, httpOptions);
+  }
+
+  getProducts() {
+    return this._http.get('http://localhost:3000/productos').pipe(
+      map((item: any) => {
+        const elements: Select[] = [];
+        item.forEach((element: any) => {
+          elements.push({
+            name: element.Nombre_Producto,
+            code: element.Id_Producto,
+          });
+        });
+        return elements;
+      })
+    );
+  }
+
+  getIngredients() {
+    return this._http.get('http://localhost:3000/ingredientes').pipe(
+      map((item: any) => {
+        const elements: Select[] = [];
+        item.forEach((element: any) => {
+          elements.push({
+            name: element.Nombre_Ingrediente,
+            code: element.Id_Ingrediente,
+          });
+        });
+        return elements;
+      })
+    );
   }
 }
