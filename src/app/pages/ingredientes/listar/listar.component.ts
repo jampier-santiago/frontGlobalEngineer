@@ -7,7 +7,7 @@ import { MessageService } from 'primeng/api';
 import { IngredientesService } from '../ingredientes.service';
 
 // --- interfaces ---
-import { Ingrediente } from '../ingredientes.list';
+import { Ingrediente } from '../ingredientes.interfaces';
 
 @Component({
   selector: 'app-listar',

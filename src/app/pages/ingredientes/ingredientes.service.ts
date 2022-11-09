@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap, BehaviorSubject } from 'rxjs';
 
 // --- Interfaces ---
-import { Ingrediente } from './ingredientes.list';
+import { Ingrediente } from './ingredientes.interfaces';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'content-type': 'application/json' }),
@@ -50,5 +50,9 @@ export class IngredientesService {
 
   putIngrediente(body: Ingrediente) {
     return this._http.put(this._url, body, httpOptions);
+  }
+
+  postIngrediente(body: Ingrediente) {
+    return this._http.post(this._url, body, httpOptions);
   }
 }
