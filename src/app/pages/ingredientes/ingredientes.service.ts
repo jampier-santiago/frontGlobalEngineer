@@ -47,4 +47,8 @@ export class IngredientesService {
         tap((response) => this._ingredientes.next(response as Ingrediente[]))
       );
   }
+
+  putIngrediente(body: Ingrediente) {
+    return this._http.put(this._url, body, httpOptions);
+  }
 }

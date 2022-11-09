@@ -10,7 +10,7 @@ import { GeneralService } from 'src/app/services/general.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 // --- Interfaces ---
-import { Contacto, ContactType } from '../contactos.interfaces';
+import { ContactType } from '../contactos.interfaces';
 import { Select } from 'src/app/services/general.interfaces';
 import { MessageService } from 'primeng/api';
 

@@ -1,1 +1,88 @@
-<p>editar works!</p>
+<p-toast
+  position="top-center"
+  severity="success"
+  summary="Summary Text"
+  [baseZIndex]="4000"
+  key="toastError"
+  (onClose)="goToList()"
+></p-toast>
+
+<section class="edit">
+  <h1 class="edit__title">{{ "Editar ingredientes" | titlecase }}</h1>
+
+  <section class="back" (click)="goToList()">
+    <i class="pi pi-angle-left"></i> Volver
+  </section>
+
+  <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+    <span class="p-float-label form__row">
+      <input
+        id="Nombre_Ingrediente"
+        type="text"
+        formControlName="Nombre_Ingrediente"
+        pInputText
+        autocomplete="off"
+      />
+      <label for="Nombre_Ingrediente">Nombre del ingrediente</label>
+    </span>
+
+    <span class="p-float-label form__row">
+      <input
+        id="Proveedor_Ingrediente"
+        type="text"
+        formControlName="Proveedor_Ingrediente"
+        pInputText
+        autocomplete="off"
+      />
+      <label for="Proveedor_Ingrediente">Proveedor del ingrediente</label>
+    </span>
+
+    <span class="p-float-label form__row">
+      <input
+        id="tel_Proveedor_Ingrediente"
+        type="text"
+        formControlName="tel_Proveedor_Ingrediente"
+        pInputText
+        autocomplete="off"
+      />
+      <label for="tel_Proveedor_Ingrediente">telefono del proveedor</label>
+    </span>
+
+    <span class="p-float-label form__row">
+      <label for="Uso_Ingrediente" class="label-select"
+        >Uso del ingrediente</label
+      >
+
+      <p-dropdown
+        id="Uso_Ingrediente"
+        formControlName="Uso_Ingrediente"
+        [options]="useProduct"
+        optionLabel="name"
+        [style]="{ minWidth: '14rem', width: '100%' }"
+        placeholder="Tipo de contacto"
+      ></p-dropdown>
+    </span>
+
+    <span class="p-float-label form__row">
+      <label for="Tipo_Ingrediente" class="label-select"
+        >Tipo del ingrediente</label
+      >
+
+      <p-dropdown
+        id="Tipo_Ingrediente"
+        formControlName="Tipo_Ingrediente"
+        [options]="productStyle"
+        optionLabel="name"
+        [style]="{ minWidth: '14rem', width: '100%' }"
+        placeholder="Tipo de contacto"
+      ></p-dropdown>
+    </span>
+
+    <button
+      pButton
+      type="submit"
+      label="Guardar"
+      [style.width]="'100%'"
+    ></button>
+  </form>
+</section>
