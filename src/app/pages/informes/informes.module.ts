@@ -8,10 +8,10 @@ import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
 
 // --- Components ---
 import { ComponentsModule } from 'src/app/components/components.module';
-import { DashboardComponent } from './dashboard.component';
+import { InformesComponent } from './informes.component';
 
 @NgModule({
-  declarations: [DashboardComponent],
-  imports: [CommonModule, RouterModule, ComponentsModule, PrimeNgModule],
+  declarations: [InformesComponent],
+  imports: [CommonModule, ComponentsModule, PrimeNgModule, RouterModule],
 })
-export class DashboardModule {}
+export class InformesModule {}

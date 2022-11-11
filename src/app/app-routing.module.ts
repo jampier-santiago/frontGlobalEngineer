@@ -17,6 +17,10 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
+    path: 'informes',
+    component: InformesComponent,
+  },
+  {
     path: 'catalogos',
     loadChildren: () =>
       import('./pages/catalogos/catalogos.module').then(
@@ -29,10 +33,6 @@ const routes: Routes = [
       import('./pages/contactos/contactos.module').then(
         (m) => m.ContactosModule
       ),
-  },
-  {
-    path: 'informes',
-    component: InformesComponent,
   },
   {
     path: 'ingredientes',
