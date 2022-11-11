@@ -2,10 +2,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
+import { tap } from 'rxjs';
 
 // --- Services ---
+import { MessageService } from 'primeng/api';
 import { CatalogosService } from '../catalogos.service';
+
+// --- Interfaces ---
+import { Select } from 'src/app/services/general.interfaces';
 
 @Component({
   selector: 'app-agregar',
@@ -13,17 +17,16 @@ import { CatalogosService } from '../catalogos.service';
   styleUrls: ['./agregar.component.scss'],
 })
 export class AgregarComponent implements OnInit {
-  private _id: string = '';
-
+  public groupCatalogs: Select[] = [];
   public form = new FormGroup({
-    catalogName: new FormControl('', Validators.required),
-    catalogType: new FormControl('', Validators.required),
+    catalogName: new FormControl(''),
+    catalogType: new FormControl<Select>({ code: '', name: '' }),
   });
 
   onSubmit() {
     if (this.form.value.catalogType && this.form.value.catalogName) {
       const dataForm = {
-        Tipo_Catalogo: this.form.value.catalogType,
+        Tipo_Catalogo: this.form.value.catalogType.name,
         Nombre_Catalogo: this.form.value.catalogName,
       };
 
@@ -57,5 +60,27 @@ export class AgregarComponent implements OnInit {
     private messageService: MessageService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._catalogService
+      .getAllCatalogs()
+      .pipe(
+        tap((data) => {
+          const elements: string[] = [];
+          const dataSelect: Select[] = [];
+
+          (data as any).forEach((element: any) => {
+            if (!elements.includes(element.Tipo_Catalogo)) {
+              elements.push(element.Tipo_Catalogo);
+              dataSelect.push({
+                code: dataSelect.length.toString(),
+                name: element.Tipo_Catalogo,
+              });
+            }
+          });
+
+          this.groupCatalogs = dataSelect;
+        })
+      )
+      .subscribe();
+  }
 }

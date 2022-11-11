@@ -97,6 +97,7 @@ export class ListarComponent implements OnInit {
         })
       )
       .subscribe();
+
     this._catalogsService.catalogs$.subscribe((data) => (this.catalogs = data));
   }
 }

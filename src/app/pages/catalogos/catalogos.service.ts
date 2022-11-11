@@ -50,7 +50,7 @@ export class CatalogosService {
   }
 
   postCatalog(body: Catalog) {
-    return this._http.post(this._url, body);
+    return this._http.post(this._url, body, httpOptions);
   }
 
   getCatalogType(type: string) {

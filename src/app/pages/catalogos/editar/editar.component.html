@@ -27,14 +27,16 @@
     </span>
 
     <span class="p-float-label form__row">
-      <input
-        id="float-input"
-        type="text"
+      <p-dropdown
+        id="catalogType"
+        inputId="catalogType"
+        [options]="groupCatalogs"
+        optionLabel="name"
+        [style]="{ minWidth: '14rem', width: '100%' }"
+        placeholder="Tipo de catalogo"
         formControlName="catalogType"
-        pInputText
-        autocomplete="off"
-      />
-      <label for="float-input">Tipo del catalogo</label>
+      ></p-dropdown>
+      <label for="catalogType">Tipo del catalogo</label>
     </span>
 
     <button
