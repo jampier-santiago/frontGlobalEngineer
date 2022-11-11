@@ -12,6 +12,7 @@ import { ToastModule } from 'primeng/toast';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     TableModule,
     CascadeSelectModule,
     DropdownModule,
+    CalendarModule,
     InputSwitchModule,
   ],
   exports: [
@@ -34,6 +36,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     ToastModule,
     CascadeSelectModule,
     DropdownModule,
+    CalendarModule,
     InputSwitchModule,
   ],
 })

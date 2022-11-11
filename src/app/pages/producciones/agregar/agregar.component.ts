@@ -18,6 +18,7 @@ import { Select } from 'src/app/services/general.interfaces';
 export class AgregarComponent implements OnInit {
   public people: Select[] = [];
   public product: Select[] = [];
+  public currentDate: Date = new Date();
 
   public form = new FormGroup({
     Fecha_Produccion: new FormControl('', Validators.required),

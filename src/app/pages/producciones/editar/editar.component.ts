@@ -20,9 +20,10 @@ export class EditarComponent implements OnInit {
   private _id: string = '';
   public people: Select[] = [];
   public product: Select[] = [];
+  public currentDate: Date = new Date();
 
   public form = new FormGroup({
-    Fecha_Produccion: new FormControl('', Validators.required),
+    Fecha_Produccion: new FormControl<Date | string>('', Validators.required),
     Id_Empleado_Produccion: new FormControl<Select>({ code: '', name: '' }),
     Id_Producto_Produccion: new FormControl<Select>({ code: '', name: '' }),
     num_totalProduccion: new FormControl(''),
@@ -34,7 +35,7 @@ export class EditarComponent implements OnInit {
   }
 
   onSubmit() {
-    const Fecha_Produccion = this.form.value.Fecha_Produccion?.trim();
+    const Fecha_Produccion = this.form.value.Fecha_Produccion;
     const Id_Empleado_Produccion = this.form.value.Id_Empleado_Produccion?.code;
     const Id_Producto_Produccion = this.form.value.Id_Producto_Produccion?.code;
     const num_totalProduccion = this.form.value.num_totalProduccion;
@@ -122,7 +123,7 @@ export class EditarComponent implements OnInit {
           .getProductionById(this._id)
           .subscribe((result: any) => {
             this.form.setValue({
-              Fecha_Produccion: result[0].Fecha,
+              Fecha_Produccion: new Date(result[0].Fecha),
               num_Defectuosos_Produccion: result[0].num_Defectuosos_Produccion,
               num_totalProduccion: result[0].num_totalProduccion,
               Id_Empleado_Produccion: this.people.find(

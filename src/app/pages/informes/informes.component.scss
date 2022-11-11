@@ -1,6 +1,40 @@
 .body {
   box-sizing: border-box;
-  padding: 20px;
+  padding: 20px 60px;
+
+  .title {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 42px;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+}
+
+.nav {
+  width: 100%;
+  margin-bottom: 20px;
+
+  &__action-back {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    a {
+      margin-left: 12px;
+      font-size: 18px;
+      letter-spacing: 1.2px;
+      outline: none;
+      color: white;
+      text-decoration: none;
+    }
+
+    &:hover a {
+      color: var(--cyan-400);
+      transition-duration: 0.3s;
+      font-weight: 600;
+    }
+  }
 }
 
 .sections {

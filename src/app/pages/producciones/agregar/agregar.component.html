@@ -8,7 +8,7 @@
 ></p-toast>
 
 <section class="add">
-  <h1 class="add__title">{{ "Editar produccion" | titlecase }}</h1>
+  <h1 class="add__title">{{ "Agregar produccion" | titlecase }}</h1>
 
   <section class="back" (click)="goToList()">
     <i class="pi pi-angle-left"></i> Volver
@@ -18,13 +18,19 @@
     <span class="p-float-label form__row">
       <label for="date" class="label-select">Fecha de producción</label>
 
-      <input
+      <p-calendar
+        id="date"
+        formControlName="Fecha_Produccion"
+        [showIcon]="true"
+        [maxDate]="currentDate"
+      ></p-calendar>
+      <!-- <input
         id="date"
         type="date"
         formControlName="Fecha_Produccion"
         pInputText
         autocomplete="off"
-      />
+      /> -->
     </span>
 
     <span class="p-float-label form__row">

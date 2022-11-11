@@ -18,13 +18,12 @@
     <span class="p-float-label form__row">
       <label for="date" class="label-select">Fecha de producción</label>
 
-      <input
+      <p-calendar
         id="date"
-        type="date"
         formControlName="Fecha_Produccion"
-        pInputText
-        autocomplete="off"
-      />
+        [showIcon]="true"
+        [maxDate]="currentDate"
+      ></p-calendar>
     </span>
 
     <span class="p-float-label form__row">
