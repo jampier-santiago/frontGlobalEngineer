@@ -5,5 +5,30 @@
 
 .sections {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 68vh;
   margin-top: 30px;
+  animation: move 3.5s alternate-reverse infinite ease-in-out;
+
+  & div {
+    border-radius: 100%;
+    overflow: hidden;
+
+    & img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@keyframes move {
+  from {
+    transform: scale(35%);
+  }
+  to {
+    transform: scale(100%);
+  }
 }
