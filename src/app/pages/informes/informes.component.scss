@@ -1,43 +1,60 @@
 .body {
   box-sizing: border-box;
-  padding: 20px 60px;
-
-  .title {
-    width: 100%;
-    margin-bottom: 20px;
-    font-size: 42px;
-    text-align: center;
-    letter-spacing: 2px;
-  }
+  padding: 20px;
 }
 
-.nav {
-  width: 100%;
-  margin-bottom: 20px;
-
-  &__action-back {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-
-    a {
-      margin-left: 12px;
-      font-size: 18px;
-      letter-spacing: 1.2px;
-      outline: none;
-      color: white;
-      text-decoration: none;
-    }
-
-    &:hover a {
-      color: var(--cyan-400);
-      transition-duration: 0.3s;
-      font-weight: 600;
-    }
-  }
-}
-
-.sections {
+.header {
   width: 100%;
   margin-top: 30px;
+
+  &__nav {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  &__filters {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    .dates {
+      width: max-content;
+      display: flex;
+      align-items: center;
+    }
+
+    .input {
+      width: max-content;
+      display: flex;
+      align-items: center;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      margin-right: 25px;
+
+      &--flex {
+        display: flex;
+        align-items: center;
+        margin-right: 25px;
+
+        label {
+          margin-right: 12px;
+        }
+      }
+
+      label {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  margin-top: 45px;
+  min-height: 60vh;
 }

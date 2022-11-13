@@ -1,18 +1,105 @@
 <main class="body">
-  <h2 class="title">Informes</h2>
+  <app-menu></app-menu>
 
-  <section class="nav">
-    <div class="nav__action-back">
-      <i class="pi pi-arrow-left" style="font-size: 1.2rem"></i>
+  <article class="header">
+    <span class="header__nav"><i class="pi pi-angle-left"></i> Volver</span>
 
-      <a href="/dashboard">Regresar</a>
+    <div class="header__filters">
+      <div class="dates">
+        <div class="row">
+          <label for="startDate" class="label-select">Fecha de inicio</label>
+
+          <p-calendar
+            id="startDate"
+            [showIcon]="true"
+            [(ngModel)]="startDate"
+            dateFormat="yy/mm/dd"
+          ></p-calendar>
+        </div>
+
+        <div class="row">
+          <label for="finishDate" [(ngModel)]="finishDate" class="label-select"
+            >Fecha final</label
+          >
+
+          <p-calendar
+            id="finishDate"
+            [showIcon]="true"
+            [(ngModel)]="finishDate"
+            dateFormat="yy/mm/dd"
+          ></p-calendar>
+        </div>
+      </div>
+
+      <div class="input">
+        <div class="row--flex" *ngIf="filterByPerson; else filterByProducts">
+          <label>Buscar por empleados</label>
+          <p-inputSwitch
+            [(ngModel)]="stateSwitch"
+            (onChange)="handleChangeSwitch()"
+          ></p-inputSwitch>
+        </div>
+
+        <ng-template #filterByProducts>
+          <div class="row--flex">
+            <label>Buscar por productos</label>
+            <p-inputSwitch
+              [(ngModel)]="stateSwitch"
+              (onChange)="handleChangeSwitch()"
+            ></p-inputSwitch>
+          </div>
+        </ng-template>
+
+        <div class="row" *ngIf="options.length > 0">
+          <p-dropdown
+            id="optionId"
+            [(ngModel)]="optionId"
+            (onChange)="findReport()"
+            [options]="options"
+            optionLabel="name"
+            [style]="{ minWidth: '14rem', width: '100%' }"
+            [placeholder]="filterByPerson ? 'Empleados' : 'Productos'"
+          ></p-dropdown>
+        </div>
+      </div>
     </div>
+  </article>
+
+  <section class="table">
+    <p-table
+      [value]="dataTable"
+      [scrollable]="true"
+      responsiveLayout="scroll"
+      scrollHeight="400px"
+      class="p-datatable-lg p-datatable-gridlines"
+      *ngIf="dataTable.length > 0; else notFound"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id produccion</th>
+          <th>Fecha</th>
+          <th>Nombre empleado</th>
+          <th>Apellido empleado</th>
+          <th>Nombre producto</th>
+          <th>total productos</th>
+          <th>Productos Defectuosos</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-report>
+        <tr>
+          <td>{{ report.Id_produccion }}</td>
+          <td>{{ report.Fecha | date }}</td>
+          <td>{{ report.Nombre_empleado }}</td>
+          <td>{{ report.Apellido_empleado }}</td>
+          <td>{{ report.Nombre_producto }}</td>
+          <td>{{ report.num_totalProduccion }}</td>
+          <td>{{ report.num_Defectuosos_Produccion }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <ng-template #notFound>Sin datos</ng-template>
   </section>
 
-  <section class="filters">
-    <div class="filters__date"></div>
-    <div class="filters__id"></div>
-  </section>
-
-  <section class="sections"></section>
+  <app-footer></app-footer>
 </main>

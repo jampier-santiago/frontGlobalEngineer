@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { HomeModule } from './pages/home/home.module';
+import { InformesdModule } from './pages/informes/informes.module';
 
 // --- Components ---
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HomeModule,
     DashboardModule,
+    InformesdModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
